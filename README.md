@@ -28,7 +28,7 @@ Stored as a human-readable CSV and later mapped to 'player_id'<br>
 
 <h3>Monte Carlo Simulation</h3>
 
-- Full **128p-player bracket**
+- Full **128-player bracket**
 - Real draw order preserved
 - Match outcomes sampled using Elo-based win probabilities
 - **100,000 tournament simulations**
