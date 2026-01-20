@@ -10,12 +10,33 @@ ATP match results from 2021–2023 are used to train a surface-weighted Elo rati
 The objective is not to predict a single outcome, but to quantify uncertainty in a knockout tournament and demonstrate a clean, reproducible simulation pipeline.
 
 # Data Sources
-ATP Match Data (2021-2023)
-Source: Jeff Sackmann's ATP match dataset
-Used to train Elo ratings chronologically
-Australian Open 2024 Draw
-Manually transcribed Round-1 draw
-Stored as a human-readable CSV and later mapped to 'player_id'
+- ATP Match Data (2021-2023)<br>
+Source: Jeff Sackmann's ATP match dataset<br>
+Used to train Elo ratings chronologically<br>
+- Australian Open 2024 Draw<br>
+Manually transcribed Round-1 draw<br>
+Stored as a human-readable CSV and later mapped to 'player_id'<br>
 
 # Methodology
-Elo Rating Model
+<h3>Elo Rating Model</h3>
+
+- All players initialized at Elo = 1500
+- Ratings updated chronologically by match data
+- Higher K-factor for best-of-five matches
+- Surface weightign with emphasis on hard courts (AO is played on hard court)
+- Elo snapshot frozen as of January 1, 2024
+
+<h3>Monte Carlo Simulation</h3>
+
+- Full **128p-player bracket**
+- Real draw order preserved
+- Match outcomes sampled using Elo-based win probabilities
+- **100,000 tournament simulations**
+- Tracks probability of reaching:
+  - Round of 16
+  - Quarterfinals
+  - Semifinals
+  - Final
+  - Champion
+
+
