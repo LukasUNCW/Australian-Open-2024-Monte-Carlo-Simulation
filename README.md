@@ -55,6 +55,7 @@ This will:
 - output advancement and title probabilites
 4. (Optional) Download and run plot.py to generate visualizations:
   - python or python3 plot.py
-
-
+ 
+# Example Plot of Top 8
+<img width="1980" height="1320" alt="plot_top8_progression_overlay" src="https://github.com/user-attachments/assets/bef87ade-2606-43c3-b3e2-f49ed3310c31" />
 
