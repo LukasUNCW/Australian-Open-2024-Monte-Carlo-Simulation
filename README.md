@@ -42,16 +42,22 @@ Stored as a human-readable CSV and later mapped to 'player_id'<br>
 # Project Structure
 <img width="329" height="509" alt="Screenshot 2026-01-20 at 3 19 04 PM" src="https://github.com/user-attachments/assets/ccb239c2-0576-4f83-8f99-d700de58b456" />
 
-# How to Run
+# Quick Usage (Preprocessed Data)
+If you want to reproduce the results without rerunning preprocessing, follow these steps:
+1. Download the following files into the same directory:
+  - atp_matches_2021_2023_clean.csv
+  - AO2024Draw.csv
+2. Download fit_elo_and_simulate.py
+  - update the BASE_DIR path inside the script if needed.
+3. Run the simulation:
+  - python or python3 fit_elo_and_simulate.py<br>
 
-1. Download the atp_matches_2021_2023_clean.csv
-2. Download the AO2024Draw.csv
-3. (Optional) Download the atp_players.csv
-4. Make sure all downloaded files are in the same directory, if not, script will not work
-5. Download / Copy the fit_elo_and_simulate.py script and change the directory inside the script accordingly
-6. Running the script will provide you with three files, those will be found in the current working directory, same on with all the files you previously downloaded
-7. Download / Copy the plot.py script and run inside the same working directory, doing so will provide you with a .png file visualizing the results
+This will:
+- train Elo ratings on historical ATP data
+- simulate the AO 2024 tournament 100,000 times
+- output advancement and title probabilites
+4. (Optional) Download and run plot.py to generate visualizations:
+  - python or python3 plot.py
 
-<h3>Example .png file</h3>
-<img width="1980" height="1320" alt="plot_top8_progression_overlay" src="https://github.com/user-attachments/assets/5ebf3cae-d075-4a8a-9d94-af82020b56a3" />
+
 
