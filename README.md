@@ -48,6 +48,10 @@ Stored as a human-readable CSV and later mapped to 'player_id'<br>
 2. Download the AO2024Draw.csv
 3. (Optional) Download the atp_players.csv
 4. Make sure all downloaded files are in the same directory, if not, script will not work
-5. Download/Copy the fit_elo_and_simulate.py script and change the directory inside the script accordingly
+5. Download / Copy the fit_elo_and_simulate.py script and change the directory inside the script accordingly
 6. Running the script will provide you with three files, those will be found in the current working directory, same on with all the files you previously downloaded
+7. Download / Copy the plot.py script and run inside the same working directory, doing so will provide you with a .png file visualizing the results
+
+<h3>Example .png file</h3>
+<img width="1980" height="1320" alt="plot_top8_progression_overlay" src="https://github.com/user-attachments/assets/5ebf3cae-d075-4a8a-9d94-af82020b56a3" />
 
