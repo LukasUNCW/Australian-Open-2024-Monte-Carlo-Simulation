@@ -1,0 +1,129 @@
+draw_position,section,seed,player,entry,player_id
+1,1,1.0,Novak Djokovic,,104925
+2,1,,Dino Prizmic,Q,209976
+3,1,,Alexei Popyrin,,200615
+4,1,,Marc Polmans,WC,117360
+5,1,,Yannick Hanfmann,,105870
+6,1,,Gael Monfils,,104792
+7,1,,Andy Murray,,104918
+8,1,30.0,Tomas Martin Etcheverry,,144869
+9,1,20.0,Adrian Mannarino,,105173
+10,1,,Stan Wawrinka,,104527
+11,1,,Alexander Shevchenko,,207686
+12,1,,Jaume Munar,,144719
+13,1,,Christopher O'Connell,,106331
+14,1,,Cristian Garin,,106426
+15,1,,Roberto Bautista Agut,,105138
+16,1,16.0,Ben Shelton,,210097
+17,2,12.0,Taylor Fritz,,126203
+18,2,,Facundo Diaz Acosta,,207680
+19,2,,Roberto Carballes Baena,,106148
+20,2,,Hugo Gaston,LL,200384
+21,2,,Fabian Marozsan,,206681
+22,2,,Marin Cilic,PR,105227
+23,2,,Dane Sweeny,Q,208013
+24,2,22.0,Francisco Cerundolo,,202103
+25,2,25.0,Lorenzo Musetti,,207518
+26,2,,Benjamin Bonzi,,126127
+27,2,,James Duckworth,WC,105902
+28,2,,Luca Van Assche,,209414
+29,2,,Aleksandar Vukic,,126846
+30,2,,Jordan Thompson,,111442
+31,2,,Zizou Bergs,LL,200267
+32,2,7.0,Stefanos Tsitsipas,,126774
+33,3,4.0,Jannik Sinner,,206173
+34,3,,Botic van de Zandschulp,,122298
+35,3,,Jesper de Jong,Q,207411
+36,3,,Pedro Cachin,,106398
+37,3,,Daniel Elahi Galan,,123755
+38,3,,Jason Kubler,WC,106186
+39,3,,J.J. Wolf,,200670
+40,3,26.0,Sebastian Baez,,202104
+41,3,17.0,Frances Tiafoe,,126207
+42,3,,Borna Coric,,106432
+43,3,,Tomas Machac,,207830
+44,3,,Shintaro Mochizuki,LL,208278
+45,3,,Alejandro Tabilo,,126214
+46,3,,Aleksandar Kovacevic,Q,206499
+47,3,,Daniel Altmaier,,127157
+48,3,15.0,Karen Khachanov,,111575
+49,4,10.0,Alex de Minaur,,200282
+50,4,,Milos Raonic,PR,105683
+51,4,,Matteo Arnaldi,,208286
+52,4,,Adam Walton,WC,200443
+53,4,,Pavel Kotov,,200303
+54,4,,Arthur Rinderknech,,126239
+55,4,,Flavio Cobolli,Q,207925
+56,4,18.0,Nicolas Jarry,,111797
+57,4,29.0,Sebastian Korda,,200624
+58,4,,Vit Kopriva,Q,200240
+59,4,,Quentin Halys,,111460
+60,4,,Lloyd Harris,Q,144750
+61,4,,Christopher Eubanks,,111153
+62,4,,Taro Daniel,,106121
+63,4,,Thiago Seyboth Wild,,205734
+64,4,5.0,Andrey Rublev,,126094
+65,5,8.0,Holger Rune,,208029
+66,5,,Yoshihito Nishioka,,106415
+67,5,,Laslo Djere,,111513
+68,5,,Arthur Cazaux,WC,209070
+69,5,,Arthur Fils,,209950
+70,5,,Jiri Vesely,PR,106210
+71,5,,Roman Safiullin,,126128
+72,5,28.0,Tallon Griekspoor,,134868
+73,5,21.0,Ugo Humbert,,200005
+74,5,,David Goffin,Q,105676
+75,5,,Zhizhen Zhang,,111190
+76,5,,Federico Coria,,105948
+77,5,,Denis Shapovalov,PR,133430
+78,5,,Jakub Mensik,Q,210150
+79,5,,Omar Jasika,Q,117357
+80,5,9.0,Hubert Hurkacz,,128034
+81,6,13.0,Grigor Dimitrov,,105777
+82,6,,Marton Fucsovics,,105916
+83,6,,Sebastian Ofner,,124116
+84,6,,Thanasi Kokkinakis,,106423
+85,6,,Maximilian Marterer,,109739
+86,6,,Nuno Borges,,132686
+87,6,,Constant Lestienne,,106005
+88,6,23.0,Alejandro Davidovich Fokina,,200221
+89,6,27.0,Felix Auger-Aliassime,,200000
+90,6,,Dominic Thiem,,106233
+91,6,,Alexandre Muller,,124186
+92,6,,Hugo Grenier,Q,126409
+93,6,,Patrick Kypson,WC,200516
+94,6,,Emil Ruusuvuori,,200325
+95,6,,Terence Atmane,Q,209279
+96,6,3.0,Daniil Medvedev,,106421
+97,7,6.0,Alexander Zverev,,100644
+98,7,,Dominik Koepfer,,136440
+99,7,,Soon-woo Kwon,PR,126952
+100,7,,Lukas Klein,Q,127760
+101,7,,James McCabe,WC,210317
+102,7,,Alex Michelsen,,210506
+103,7,,Bernabe Zapata Miralles,,126523
+104,7,32.0,Jiri Lehecka,,208103
+105,7,19.0,Cameron Norrie,,111815
+106,7,,Juan Pablo Varillas,,122669
+107,7,,Dusan Lajovic,,105583
+108,7,,Giulio Zeppieri,Q,206748
+109,7,,Max Purcell,,126845
+110,7,,Mate Valkusz,Q,200218
+111,7,,Albert Ramos-Vinolas,,105077
+112,7,11.0,Casper Ruud,,134770
+113,8,14.0,Tommy Paul,,126205
+114,8,,Gregoire Barrere,,106296
+115,8,,Marcos Giron,,106218
+116,8,,Jack Draper,,207733
+117,8,,Miomir Kecmanovic,,200175
+118,8,,Yosuke Watanuki,,133297
+119,8,,Rinky Hijikata,,208014
+120,8,24.0,Jan-Lennard Struff,,105526
+121,8,31.0,Alexander Bublik,,122330
+122,8,,Sumit Nagal,Q,111576
+123,8,,Mackenzie McDonald,,111456
+124,8,,Juncheng Shang,WC,209992
+125,8,,Daniel Evans,,105554
+126,8,,Lorenzo Sonego,,132283
+127,8,,Richard Gasquet,,104755
+128,8,2.0,Carlos Alcaraz,,207989
