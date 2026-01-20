@@ -9,7 +9,7 @@ ATP match results from 2021–2023 are used to train a surface-weighted Elo rati
 
 The objective is not to predict a single outcome, but to quantify uncertainty in a knockout tournament and demonstrate a clean, reproducible simulation pipeline.
 
-Data Sources
+# Data Sources
 ATP Match Data (2021-2023)
 Source: Jeff Sackmann's ATP match dataset
 Used to train Elo ratings chronologically
@@ -17,5 +17,5 @@ Australian Open 2024 Draw
 Manually transcribed Round-1 draw
 Stored as a human-readable CSV and later mapped to 'player_id'
 
-Methodology
+# Methodology
 Elo Rating Model
