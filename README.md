@@ -39,9 +39,6 @@ Stored as a human-readable CSV and later mapped to 'player_id'<br>
   - Final
   - Champion
 
-# Project Structure
-<img width="329" height="509" alt="Screenshot 2026-01-20 at 3 19 04 PM" src="https://github.com/user-attachments/assets/ccb239c2-0576-4f83-8f99-d700de58b456" />
-
 # Quick Usage (Preprocessed Data)
 If you want to reproduce the results without rerunning preprocessing, follow these steps:
 1. Download the following files into the same directory:
