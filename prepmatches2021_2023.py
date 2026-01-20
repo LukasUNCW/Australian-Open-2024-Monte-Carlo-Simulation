@@ -1,12 +1,8 @@
-# prepare_matches_2021_2023.py
-# Loads ATP match CSVs (2021–2023), cleans them, and writes one clean file.
-# BASE DIRECTORY: /Users/niclasnilsson/Desktop/AO
-
 from __future__ import annotations
 from pathlib import Path
 import pandas as pd
 
-BASE_DIR = Path("/Users/niclasnilsson/Desktop/AO")
+BASE_DIR = Path("*")
 
 INPUT_FILES = [
     BASE_DIR / "atp_matches_2021.csv",
