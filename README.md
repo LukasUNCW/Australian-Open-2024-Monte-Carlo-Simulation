@@ -57,7 +57,8 @@ This will:
   - python or python3 plot.py
  
 # Example Visual of Top 8 Title Favorites Progression
-<img width="1980" height="1320" alt="plot_top8_progression_overlay" src="https://github.com/user-attachments/assets/bef87ade-2606-43c3-b3e2-f49ed3310c31" />
+<img width="1475" height="731" alt="Screenshot 2026-01-20 at 5 02 56 PM" src="https://github.com/user-attachments/assets/a11307d6-f768-4c73-8167-6ad1fad2d6c8" />
+
 
 # Backtest Against Actual Australian Open 2024
 
