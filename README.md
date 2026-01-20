@@ -41,3 +41,13 @@ Stored as a human-readable CSV and later mapped to 'player_id'<br>
 
 # Project Structure
 <img width="329" height="509" alt="Screenshot 2026-01-20 at 3 19 04 PM" src="https://github.com/user-attachments/assets/ccb239c2-0576-4f83-8f99-d700de58b456" />
+
+# How to Run
+
+1. Download the atp_matches_2021_2023_clean.csv
+2. Download the AO2024Draw.csv
+3. (Optional) Download the atp_players.csv
+4. Make sure all downloaded files are in the same directory, if not, script will not work
+5. Download/Copy the fit_elo_and_simulate.py script and change the directory accordingly
+6. Running the script will provide you with three files, those will be found in the current working directory
+
