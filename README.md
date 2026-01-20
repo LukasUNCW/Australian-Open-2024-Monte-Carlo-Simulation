@@ -56,7 +56,7 @@ This will:
 4. (Optional) Download and run plot.py to generate visualizations:
   - python or python3 plot.py
  
-# Example Visual of Top 8 Title Favorites Progression
+# Example Visual of Top 8 Title Finalists Probabilites
 <img width="1476" height="733" alt="Screenshot 2026-01-20 at 5 05 08 PM" src="https://github.com/user-attachments/assets/931caa41-f23c-4c40-8bb5-1840ee2605dc" />
 
 # Backtest Against Actual Australian Open 2024
