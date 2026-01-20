@@ -58,3 +58,15 @@ This will:
  
 # Example Visual of Top 8 Title Favorites Progression
 <img width="1980" height="1320" alt="plot_top8_progression_overlay" src="https://github.com/user-attachments/assets/bef87ade-2606-43c3-b3e2-f49ed3310c31" />
+
+# Backtest Against Actual Australian Open 2024
+
+To evaluate the model, the simulated probabilities were compared against the real 2024 Australian Open results.
+
+The eventual champion, Jannik Sinner, was ranked 2nd by the model and assigned a 16.1% title probability prior to the tournament, indicating strong calibration at the top of the field.
+
+Round-level evaluation showed high coverage in earlier rounds (75% of R16 players and 87.5% of quarterfinalists appeared in the model’s top-N predictions). As expected, coverage declined in later rounds due to path dependency and upset propagation inherent in single-elimination tournaments.
+
+The model also identified several high-impact upsets, including multiple wins by Arthur Cazaux and Nuno Borges, which aligned with widely recognized tournament surprises.
+
+Overall, the results demonstrate that a surface-weighted Elo Monte Carlo framework can provide realistic probabilistic forecasts while appropriately reflecting tournament uncertainty.
