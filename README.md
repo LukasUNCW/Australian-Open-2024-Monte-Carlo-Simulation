@@ -23,7 +23,7 @@ Stored as a human-readable CSV and later mapped to 'player_id'<br>
 - All players initialized at Elo = 1500
 - Ratings updated chronologically by match data
 - Higher K-factor for best-of-five matches
-- Surface weightign with emphasis on hard courts (AO is played on hard court)
+- Surface weighting with emphasis on hard courts (AO is played on hard court)
 - Elo snapshot frozen as of January 1, 2024
 
 <h3>Monte Carlo Simulation</h3>
