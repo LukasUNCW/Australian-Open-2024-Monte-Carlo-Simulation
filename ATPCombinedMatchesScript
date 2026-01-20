@@ -1,0 +1,93 @@
+# prepare_matches_2021_2023.py
+# Loads ATP match CSVs (2021–2023), cleans them, and writes one clean file.
+# BASE DIRECTORY: your/path/here
+
+from __future__ import annotations
+from pathlib import Path
+import pandas as pd
+
+BASE_DIR = Path("your/path/here")
+
+INPUT_FILES = [
+    BASE_DIR / "atp_matches_2021.csv",
+    BASE_DIR / "atp_matches_2022.csv",
+    BASE_DIR / "atp_matches_2023.csv",
+]
+
+OUTPUT_FILE = BASE_DIR / "atp_matches_2021_2023_clean.csv"
+
+REQUIRED_COLS = ["tourney_date", "surface", "winner_id", "loser_id", "best_of"]
+
+
+def normalize_surface(val) -> str:
+    if pd.isna(val):
+        return "Unknown"
+    s = str(val).strip().lower()
+    if "hard" in s:
+        return "Hard"
+    if "clay" in s:
+        return "Clay"
+    if "grass" in s:
+        return "Grass"
+    if "carpet" in s:
+        return "Carpet"
+    return str(val).strip().title()
+
+
+def parse_tourney_date(series: pd.Series) -> pd.Series:
+    s = series.astype(str).str.replace(r"\.0$", "", regex=True).str.strip()
+    return pd.to_datetime(s, format="%Y%m%d", errors="coerce")
+
+
+def load_one(path: Path) -> pd.DataFrame:
+    if not path.exists():
+        raise FileNotFoundError(f"Missing file: {path}")
+
+    df = pd.read_csv(path)
+
+    missing = [c for c in REQUIRED_COLS if c not in df.columns]
+    if missing:
+        raise ValueError(f"{path.name} missing required columns: {missing}")
+
+    out = df[REQUIRED_COLS].copy()
+
+    out["tourney_date_dt"] = parse_tourney_date(out["tourney_date"])
+    out = out.dropna(subset=["tourney_date_dt"])
+
+    out["surface_norm"] = out["surface"].apply(normalize_surface)
+
+    out["winner_id"] = pd.to_numeric(out["winner_id"], errors="coerce").astype("Int64")
+    out["loser_id"] = pd.to_numeric(out["loser_id"], errors="coerce").astype("Int64")
+    out["best_of"] = pd.to_numeric(out["best_of"], errors="coerce").astype("Int64")
+
+    out = out.dropna(subset=["winner_id", "loser_id", "best_of"])
+
+    out["winner_id"] = out["winner_id"].astype(int)
+    out["loser_id"] = out["loser_id"].astype(int)
+    out["best_of"] = out["best_of"].astype(int)
+
+    return out
+
+
+def main():
+    dfs = [load_one(p) for p in INPUT_FILES]
+    matches = pd.concat(dfs, ignore_index=True)
+
+    # Sort chronologically (critical for Elo)
+    matches = matches.sort_values("tourney_date_dt").reset_index(drop=True)
+
+    matches = matches[
+        ["tourney_date_dt", "surface_norm", "best_of", "winner_id", "loser_id"]
+    ].copy()
+
+    matches.to_csv(OUTPUT_FILE, index=False)
+
+    print("Clean match file created")
+    print(f"Output: {OUTPUT_FILE}")
+    print(f"Rows: {len(matches):,}")
+    print("\nSurface breakdown:")
+    print(matches["surface_norm"].value_counts().to_string())
+
+
+if __name__ == "__main__":
+    main()
