@@ -239,14 +239,14 @@ def main():
         seed=sim_params.seed,
     )
 
-    # Join names/seed/entry from draw for readability
+    # join names/seed/entry from draw for readability
     meta_cols = [c for c in ["draw_position", "section", "seed", "player", "entry", "player_id"] if c in draw.columns]
     meta = draw[meta_cols].copy()
 
     advancement_out = meta.merge(advancement_df, on="player_id", how="left")
     champ_out = meta.merge(champ_df, on="player_id", how="left")
 
-    # Sort for output
+    # sort for output
     advancement_out = advancement_out.sort_values("W", ascending=False)
     champ_out = champ_out.sort_values("p_win", ascending=False)
 
