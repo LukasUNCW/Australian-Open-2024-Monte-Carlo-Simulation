@@ -1,17 +1,17 @@
 # 1) loads cleaned matches 
 # 2) fit surface-weighted elo (hard court)
 # 3) load AO 2024 draw with IDs (128 rows)
-# 4) run Monte Carlo simulations
+# 4) run Monte Carlo simulations (100,000)
 # 5) save probabilities (R16/QF/SF/F/W) for every player in the draw
-#
+
 # Expected files in: 
 #   - atp_matches_2021_2023_clean.csv
 #   - AO2024Draw.csv
-# Optional (for nicer output):
-#   - atp_players.csv  (to join names cleanly; the script already has player names in draw file)
+# optional (use for a nicer output)
+# atp_players.csv  (to join names cleanly)
+# MAKE SURE TO CHANGE THE BASE_DIR TO YOUR CURRENT WORKING DIRECTORY
 
 from __future__ import annotations
-
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Dict, List, Tuple
@@ -48,14 +48,11 @@ class SimParams:
 def expected_score(elo_a: float, elo_b: float) -> float:
     return 1.0 / (1.0 + 10 ** ((elo_b - elo_a) / 400.0))
 
-
 def k_for_best_of(best_of: int, p: EloParams) -> float:
     return p.k_bo5 if int(best_of) == 5 else p.k_bo3
 
-
 def surface_weight(surface_norm: str, p: EloParams) -> float:
     return p.weight_hard if surface_norm == "Hard" else p.weight_other
-
 
 def update_elo(
     elos: Dict[int, float],
@@ -79,7 +76,6 @@ def update_elo(
     elos[w] = elos[w] + k * (1.0 - ew)
     elos[l] = elos[l] + k * (0.0 - (1.0 - ew))
 
-
 def fit_elo(matches: pd.DataFrame, p: EloParams) -> Dict[int, float]:
     req = ["tourney_date_dt", "surface_norm", "best_of", "winner_id", "loser_id"]
     missing = [c for c in req if c not in matches.columns]
@@ -100,16 +96,13 @@ def fit_elo(matches: pd.DataFrame, p: EloParams) -> Dict[int, float]:
         )
     return elos
 
-
 # simulation functions
 ROUNDS = ["R128", "R64", "R32", "R16", "QF", "SF", "F", "W"]
-
 
 def match_win_prob(a_id: int, b_id: int, elos: Dict[int, float], base_elo: float) -> float:
     ea = elos.get(int(a_id), base_elo)
     eb = elos.get(int(b_id), base_elo)
     return expected_score(ea, eb)
-
 
 def simulate_one_tournament_with_rounds(
     players_in_order: List[int],
@@ -144,7 +137,6 @@ def simulate_one_tournament_with_rounds(
 
     champ = round_players[0]
     return champ, reached
-
 
 def run_monte_carlo(
     players_in_order: List[int],
@@ -181,7 +173,7 @@ def run_monte_carlo(
 
     advancement_df = pd.DataFrame(adv)
 
-    # Champion probs
+    # champion probs
     champ_df = pd.DataFrame(
         {"player_id": list(champ_counts.keys()), "p_win": [v / n_sims for v in champ_counts.values()]}
     )
