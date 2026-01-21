@@ -20,7 +20,7 @@ Stored as a human-readable CSV and later mapped to 'player_id'<br>
 # Methodology
 <h3>Elo Rating Model</h3>
 Based on Arpad Elo's system found here: https://en.wikipedia.org/wiki/Elo_rating_system<br>
-- All players initialized at Elo = 1500<br>
+<br>- All players initialized at Elo = 1500<br>
 - Ratings updated chronologically by match data<br>
 - Higher K-factor for best-of-five matches (longer match format for Grand Slams)<br>
 - Surface weighting with emphasis on hard courts (AO is played on hard court, data on other surfaces would be insignificant as they play differently)<br>
