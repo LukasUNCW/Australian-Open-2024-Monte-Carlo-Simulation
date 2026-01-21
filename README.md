@@ -11,7 +11,7 @@ The objective is not to predict a single outcome, but to quantify uncertainty in
 
 # Data Sources
 - ATP Match Data (2021-2023)<br>
-Source: Jeff Sackmann's ATP match dataset<br>
+Source: [Jeff Sackmann's ATP match dataset](https://github.com/JeffSackmann/tennis_atp)<br>
 Used to train Elo ratings chronologically<br>
 - Australian Open 2024 Draw<br>
 Manually transcribed Round-1 draw<br>
