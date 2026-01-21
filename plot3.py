@@ -2,16 +2,16 @@ from pathlib import Path
 import pandas as pd
 import matplotlib.pyplot as plt
 
-BASE_DIR = Path("/Users/niclasnilsson/Desktop/AO")
+BASE_DIR = Path("*")
 
-CHAMP_PROBS = BASE_DIR / "ao2024_champion_probabilities.csv"  # columns: player_id, p_win
-PLAYERS = BASE_DIR / "atp_players.csv"                        # columns: player_id, name_first, name_last
+CHAMP_PROBS = BASE_DIR / "ao2024_champion_probabilities.csv"  
+PLAYERS = BASE_DIR / "atp_players.csv"                       
 
 OUT_DIR = BASE_DIR / "outputs" / "plots"
 OUT_PNG = OUT_DIR / "ao2024_champion_probabilities_top15.png"
 
 TOP_N = 8
-HIGHLIGHT_NAME = "Jannik Sinner"  # used after name merge
+HIGHLIGHT_NAME = "Jannik Sinner" 
 
 
 def main():
@@ -24,7 +24,6 @@ def main():
     champ = pd.read_csv(CHAMP_PROBS)
     players = pd.read_csv(PLAYERS, low_memory=False)
 
-    # Validate columns
     if not {"player_id", "p_win"}.issubset(champ.columns):
         raise ValueError("ao2024_champion_probabilities.csv must contain: player_id, p_win")
     if not {"player_id", "name_first", "name_last"}.issubset(players.columns):
@@ -40,13 +39,11 @@ def main():
     df = df.sort_values("p_win", ascending=False).head(TOP_N).copy()
     df["p_pct"] = df["p_win"] * 100
 
-    # Build plot
     plt.figure(figsize=(12, 6))
     ax = plt.gca()
 
     bars = ax.bar(df["player"], df["p_pct"])
 
-    # Highlight Sinner using hatch + thicker edge (no explicit color needed)
     highlight_idx = None
     for i, name in enumerate(df["player"].tolist()):
         if name.strip().lower() == HIGHLIGHT_NAME.strip().lower():
@@ -57,7 +54,6 @@ def main():
         bars[highlight_idx].set_hatch("///")
         bars[highlight_idx].set_linewidth(2.5)
 
-        # Annotate directly above the bar
         x = bars[highlight_idx].get_x() + bars[highlight_idx].get_width() / 2
         y = bars[highlight_idx].get_height()
         ax.text(x, y + 0.3, "Sinner", ha="center", va="bottom", fontsize=11, fontweight="bold")
@@ -69,7 +65,6 @@ def main():
     ax.set_xlabel("")
     ax.set_ylim(0, max(df["p_pct"].max() * 1.15, 5))
 
-    # Rotate x labels for readability
     plt.xticks(rotation=45, ha="right")
     plt.tight_layout()
 
