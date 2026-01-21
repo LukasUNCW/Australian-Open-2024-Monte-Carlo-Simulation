@@ -58,8 +58,13 @@ This will:
 4. (Optional) Download and run plot.py to generate visualizations:
   - python or python3 plot.py
  
-# Example Visual of Top 8 Title Probabilites
+# Top 8 Title Win Probabilities (includes actual winner)
 <img width="1476" height="733" alt="Screenshot 2026-01-20 at 5 05 08 PM" src="https://github.com/user-attachments/assets/931caa41-f23c-4c40-8bb5-1840ee2605dc" />
+
+# Top 8 AO Progression Probabilities
+<img width="1980" height="1320" alt="plot_top8_progression_overlay" src="https://github.com/user-attachments/assets/4b537831-071d-4ee6-9565-9bf32791584f" />
+
+
 
 # Backtest Against Actual Australian Open 2024
 
