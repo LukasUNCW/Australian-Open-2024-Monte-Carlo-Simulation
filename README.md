@@ -19,7 +19,7 @@ Stored as a human-readable CSV and later mapped to 'player_id'<br>
 
 # Methodology
 <h3>Elo Rating Model</h3>
-
+Based on Arpad Elo's system found here: https://en.wikipedia.org/wiki/Elo_rating_system
 - All players initialized at Elo = 1500
 - Ratings updated chronologically by match data
 - Higher K-factor for best-of-five matches (longer match format for Grand Slams)
