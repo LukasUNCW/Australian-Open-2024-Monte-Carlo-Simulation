@@ -19,7 +19,7 @@ import numpy as np
 import pandas as pd
 
 # file paths
-BASE_DIR = Path("your/path/here")
+BASE_DIR = Path("*")
 
 MATCHES_CLEAN = BASE_DIR / "atp_matches_2021_2023_clean.csv"
 DRAW_FIXED = BASE_DIR / "AO2024Draw.csv"
