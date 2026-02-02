@@ -1,14 +1,3 @@
-# 1) loads cleaned matches 
-# 2) fit surface-weighted elo (hard court)
-# 3) load AO 2024 draw with IDs (128 rows)
-# 4) run Monte Carlo simulations (100,000)
-# 5) save probabilities (R16/QF/SF/F/W) for every player in the draw
-
-# Expected files in: 
-#   - atp_matches_2021_2023_clean.csv
-#   - AO2024Draw.csv
-# optional (use for a nicer output)
-# atp_players.csv  (to join names cleanly)
 # MAKE SURE TO CHANGE THE BASE_DIR TO YOUR CURRENT WORKING DIRECTORY
 
 from __future__ import annotations
