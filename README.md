@@ -1,6 +1,6 @@
 # Australian Open 2024 — Monte Carlo Simulation
 
-A Python-based project that simulates the 2024 Australian Open men's singles tournament using a surface-weighted Elo rating model and Monte Carlo methods to estimate player advancement and championship probabilities.
+A Python based project that simulates the 2024 Australian Open men's singles tournament using a surface-weighted Elo rating model and Monte Carlo methods to estimate player advancement and championship probabilities.
 
 This project mirrors how probabilistic forecasting is done in sports analytics, emphasizing:
 - Statistical rigor
