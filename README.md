@@ -1,174 +1,91 @@
-# Australian Open 2024 — Monte Carlo Simulation
+# Australian Open 2024: Monte Carlo Simulation
 
-A Python based project that simulates the 2024 Australian Open men's singles tournament using a surface-weighted Elo rating model and Monte Carlo methods to estimate player advancement and championship probabilities.
+![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)
+![pandas](https://img.shields.io/badge/pandas-150458?logo=pandas&logoColor=white)
+![NumPy](https://img.shields.io/badge/NumPy-013243?logo=numpy&logoColor=white)
+![Matplotlib](https://img.shields.io/badge/Matplotlib-11557c)
 
-This project mirrors how probabilistic forecasting is done in sports analytics, emphasizing:
-- Statistical rigor
-- No look-ahead bias (Elo frozen pre-tournament)
-- Reproducibility
-- Clean, modular simulation design
+A surface-weighted Elo model trained on three seasons of ATP results, frozen on January 1, 2024, and used to play the real 128-player Australian Open draw **100,000 times**. The result is a probability for every player to reach every round, which is then checked against what actually happened in Melbourne.
 
----
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/title_odds_dark.png">
+  <img alt="Bar chart of pre-tournament title odds: Djokovic 39.8%, Sinner 16.1% (actual champion), Alcaraz 12.2%, Medvedev 9.9%" src="assets/title_odds.png">
+</picture>
 
-## Table of Contents
-- [Overview](#overview)
-- [Tech Stack](#tech-stack)
-- [Project Structure](#project-structure)
-- [Methodology](#methodology)
-- [Prerequisites & Installation](#prerequisites--installation)
-- [How to Run](#how-to-run)
-- [Results & Visualizations](#results--visualizations)
-- [Backtest Against Actual Results](#backtest-against-actual-results)
-- [Data Sources](#data-sources)
+## Key results
 
----
+- **The champion was the model's #2 pick.** Jannik Sinner went in at **16.1%**, behind only Novak Djokovic (39.8%), and ahead of higher seeds Carlos Alcaraz [2] and Daniil Medvedev [3].
+- **Elo beat the seeding committee in the early rounds.** The model's 16 most likely fourth-rounders included 12 of the real ones (seeding picked 11), and its top 8 quarterfinal picks included 7 of the 8 real quarterfinalists (seeding picked 6).
+- **The surprise runs were long shots, not blind spots.** Arthur Cazaux (3%) and Nuno Borges (4%) reached the round of 16 from outside the seedings. The model rated them unlikely but not impossible, which is how a probabilistic forecast should handle upsets.
+- **Knockout uncertainty compounds.** Neither the model nor seeding named either finalist in its top two. Sinner and Djokovic were drawn in the same half, so at most one of the model's two favourites could reach the final.
 
-## Overview
+## Backtest against the real tournament
 
-ATP match results from 2021–2023 are used to train a surface-weighted Elo rating model, which serves as a measure of player strength. Elo ratings are frozen prior to the tournament to avoid look-ahead bias. Using the official Round 1 draw, the tournament is simulated **100,000 times**, producing probabilistic forecasts for each player's progression through the bracket.
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/progression_dark.png">
+  <img alt="Heatmap of the top 12 players' probabilities of reaching each round, with the rounds each player actually reached outlined" src="assets/progression.png">
+</picture>
 
-The objective is not to predict a single outcome, but to **quantify uncertainty** in a knockout tournament and demonstrate a clean, reproducible simulation pipeline.
+Outlined cells are rounds each player actually reached. The model's darkest cells line up with the real bracket through the quarterfinals. Its biggest single miss is Grigor Dimitrov (6th-best title odds, 49% to make the round of 16), who didn't make it that far. Unseeded Nuno Borges came through his section instead.
 
----
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/coverage_dark.png">
+  <img alt="Grouped bars comparing top-N coverage of the Elo model and seeding for each round" src="assets/coverage.png">
+</picture>
 
-## Tech Stack
+| Round | Players | Elo model top-N hits | Seeding top-N hits |
+|---|---:|---:|---:|
+| Round of 16 | 16 | **12** (75%) | 11 (69%) |
+| Quarterfinal | 8 | **7** (88%) | 6 (75%) |
+| Semifinal | 4 | 3 (75%) | 3 (75%) |
+| Final | 2 | 0 | 0 |
+| Champion | 1 | 0 | 0 |
 
-| Tool | Purpose |
-|---|---|
-| Python 3.x | Core language |
-| pandas | Data loading and preprocessing |
-| NumPy | Probability sampling and simulation |
-| Matplotlib | Visualization |
+*Top-N coverage:* take the N players each method ranks most likely to reach a round and count how many actually did. The seeding baseline ranks players by seed, with unseeded players last.
 
----
-
-## Project Structure
-
-```
-AO2024-Monte-Carlo/
-│
-├── fit_elo_and_simulate.py           # Trains Elo ratings and runs the simulation
-├── plot3.py                          # Generates result visualizations
-│
-├── atp_matches_2021_2023_clean.csv   # Cleaned ATP match data (2021–2023)
-├── atp_players.csv                   # List of all current ATP players with IDs
-└── AO2024Draw.csv                    # Official AO 2024 Round 1 draw with player IDs
-```
-
----
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/r16_surprises_dark.png">
+  <img alt="Dot plot of the pre-tournament probability each actual round-of-16 player would reach that round, from Djokovic at 84% down to Cazaux at 3%" src="assets/r16_surprises.png">
+</picture>
 
 ## Methodology
 
-### Elo Rating Model
+**Elo ratings** ([Elo rating system](https://en.wikipedia.org/wiki/Elo_rating_system), adapted for tennis)
+- Trained chronologically on 8,636 ATP tour-level matches (Jan 2021 – Nov 2023); every player starts at 1500
+- K = 32 for best-of-five matches and 24 for best-of-three, so Grand Slam results move ratings more
+- Hard-court matches count in full and clay/grass at half weight, since the Australian Open is played on hard courts
+- Ratings are **frozen on January 1, 2024**: nothing from the tournament itself leaks into the forecast
 
-Based on [Arpad Elo's rating system](https://en.wikipedia.org/wiki/Elo_rating_system), adapted for professional tennis.
+**Monte Carlo bracket**
+- The official 128-player draw, in real bracket order (`AO2024Draw.csv`)
+- Each match is a single draw with win probability 1 / (1 + 10^((Elo_B − Elo_A)/400))
+- 100,000 full tournaments (seed 42) → probability of every player reaching R64, R32, R16, QF, SF, F and winning
 
-- All players initialized at **Elo = 1500**
-- Ratings updated **chronologically** using historical match data
-- **Higher K-factor** applied to best-of-five matches (Grand Slam format)
-- **Surface weighting** with emphasis on hard courts (the AO is played on hard court)
-- Elo snapshot **frozen as of January 1, 2024** to prevent look-ahead bias
+**Backtest**
+- `AO2024Results.csv` records how far each of the 16 fourth-round players got. Every other player lost before the round of 16.
 
-### Monte Carlo Simulation
+## Getting started
 
-- Full **128-player bracket** with real draw order preserved
-- Match outcomes sampled using **Elo-based win probabilities**
-- **100,000 tournament simulations** run in total
-- Tracks each player's probability of reaching:
-  - Round of 16
-  - Quarterfinals
-  - Semifinals
-  - Final
-  - Champion
-
----
-
-## Prerequisites & Installation
-
-**1. Clone the repository**
 ```bash
-git clone https://github.com/LukasUNCW/AO2024-Monte-Carlo.git
-cd AO2024-Monte-Carlo
-```
-
-**2. Install dependencies**
-```bash
+git clone https://github.com/LukasUNCW/Australian-Open-2024-Monte-Carlo-Simulation.git
+cd Australian-Open-2024-Monte-Carlo-Simulation
 pip install pandas numpy matplotlib
+
+python fit_elo_and_simulate.py   # fit Elo, simulate 100k tournaments → results/   (~10 s)
+python make_figures.py           # backtest + charts → assets/
 ```
 
----
-
-## How to Run
-
-### Run the Simulation
-
-Trains Elo ratings on historical ATP data and simulates the AO 2024 tournament 100,000 times. Outputs advancement and title probabilities to the console.
-
-```bash
-python fit_elo_and_simulate.py
-```
-
-> **Note:** Update the `BASE_DIR` path inside `fit_elo_and_simulate.py` if your data files are in a different directory.
-
-### Generate Visualizations
-
-```bash
-python plot3.py
-```
-
-### Quick Start (Preprocessed Data)
-
-If you want to reproduce results without rerunning preprocessing:
-
-1. Download these files into the same directory:
-   - `atp_matches_2021_2023_clean.csv`
-   - `AO2024Draw.csv`
-2. Download `fit_elo_and_simulate.py` and update `BASE_DIR` if needed
-3. Run the simulation, then optionally run `plot3.py` for visualizations
-
----
-
-## Results & Visualizations
-
-### Top 8 Title Win Probabilities
-
-Includes the actual tournament winner for reference.
-
-<img width="1476" height="733" alt="Top 8 Title Win Probabilities" src="https://github.com/user-attachments/assets/931caa41-f23c-4c40-8bb5-1840ee2605dc" />
-
-### Top 8 Progression Probabilities
-
-Shows the probability of each top player advancing through each round of the draw.
-
-<img width="1980" height="1320" alt="Top 8 AO Progression Probabilities" src="https://github.com/user-attachments/assets/4b537831-071d-4ee6-9565-9bf32791584f" />
-
----
-
-## Backtest Against Actual Results
-
-To evaluate the model, simulated probabilities were compared against the real 2024 Australian Open results.
-
-**Champion calibration:** The eventual champion, Jannik Sinner, was ranked **2nd** by the model with a **16.1% title probability** prior to the tournament — indicating strong calibration at the top of the field.
-
-**Round-level coverage:**
-
-| Round | Top-N Coverage |
+| File | Contents |
 |---|---|
-| Round of 16 | 75% of actual players appeared in model's top-N |
-| Quarterfinals | 87.5% coverage |
-| Semifinals & beyond | Declined due to path dependency and upset propagation |
+| `fit_elo_and_simulate.py` | Elo fitting and the Monte Carlo bracket simulation |
+| `make_figures.py` | Backtest against actual results; generates every chart above |
+| `atp_matches_2021_2023_clean.csv` | Training data: date, surface, best-of, winner and loser IDs |
+| `AO2024Draw.csv` | Official 2024 Round 1 draw, with seeds, entry status and player IDs |
+| `AO2024Results.csv` | Furthest round reached by each round-of-16 player |
+| `atp_players.csv` | ATP player ID → name lookup |
+| `results/` | Elo snapshot and per-player advancement and title probabilities |
 
-Coverage declining in later rounds is expected behavior in single-elimination tournaments, where small early upsets compound through the bracket.
+## Data sources
 
-**Upset detection:** The model identified several high-impact upsets, including multiple wins by Arthur Cazaux and Nuno Borges, which aligned with widely recognized tournament surprises.
-
-Overall, the results demonstrate that a surface-weighted Elo Monte Carlo framework can provide **realistic probabilistic forecasts** while appropriately reflecting tournament uncertainty.
-
----
-
-## Data Sources
-
-| Dataset | Source |
-|---|---|
-| ATP Match Data (2021–2023) | [Jeff Sackmann's ATP match dataset](https://github.com/JeffSackmann/tennis_atp) — used to train Elo ratings chronologically |
-| AO 2024 Draw | Manually transcribed Round 1 draw, stored as CSV and mapped to `player_id` |
+- ATP match results and player IDs: [Jeff Sackmann's `tennis_atp`](https://github.com/JeffSackmann/tennis_atp) dataset (CC BY-NC-SA 4.0)
+- 2024 draw and results: transcribed from the official Australian Open draw

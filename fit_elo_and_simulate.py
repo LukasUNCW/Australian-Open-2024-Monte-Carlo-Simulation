@@ -1,5 +1,3 @@
-# MAKE SURE TO CHANGE THE BASE_DIR TO YOUR CURRENT WORKING DIRECTORY
-
 from __future__ import annotations
 from dataclasses import dataclass
 from pathlib import Path
@@ -8,14 +6,15 @@ import numpy as np
 import pandas as pd
 
 # file paths
-BASE_DIR = Path("*")
+BASE_DIR = Path(__file__).resolve().parent
 
 MATCHES_CLEAN = BASE_DIR / "atp_matches_2021_2023_clean.csv"
 DRAW_FIXED = BASE_DIR / "AO2024Draw.csv"
 
-OUT_ELO = BASE_DIR / "elo_asof_2024-01-01.csv"
-OUT_PROBS = BASE_DIR / "ao2024_advancement_probabilities.csv"
-OUT_CHAMP = BASE_DIR / "ao2024_champion_probabilities.csv"
+OUT_DIR = BASE_DIR / "results"
+OUT_ELO = OUT_DIR / "elo_asof_2024-01-01.csv"
+OUT_PROBS = OUT_DIR / "ao2024_advancement_probabilities.csv"
+OUT_CHAMP = OUT_DIR / "ao2024_champion_probabilities.csv"
 
 
 @dataclass(frozen=True)
@@ -182,6 +181,8 @@ def main():
     matches["tourney_date_dt"] = pd.to_datetime(matches["tourney_date_dt"], errors="coerce")
     matches = matches.dropna(subset=["tourney_date_dt"]).copy()
     matches["tourney_date_dt"] = matches["tourney_date_dt"].dt.date
+
+    OUT_DIR.mkdir(exist_ok=True)
 
     print("Fitting Elo...")
     elo_params = EloParams()
