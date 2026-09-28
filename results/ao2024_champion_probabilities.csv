@@ -1,0 +1,129 @@
+draw_position,section,seed,player,entry,player_id,p_win
+1,1,1.0,Novak Djokovic,,104925,0.39775
+33,3,4.0,Jannik Sinner,,206173,0.161
+128,8,2.0,Carlos Alcaraz,,207989,0.12194
+96,6,3.0,Daniil Medvedev,,106421,0.09935
+97,7,6.0,Alexander Zverev,,100644,0.04443
+81,6,13.0,Grigor Dimitrov,,105777,0.02863
+64,4,5.0,Andrey Rublev,,126094,0.02537
+80,5,9.0,Hubert Hurkacz,,128034,0.01751
+32,2,7.0,Stefanos Tsitsipas,,126774,0.01282
+49,4,10.0,Alex de Minaur,,200282,0.01186
+17,2,12.0,Taylor Fritz,,126203,0.0108
+48,3,15.0,Karen Khachanov,,111575,0.00741
+65,5,8.0,Holger Rune,,208029,0.00536
+73,5,21.0,Ugo Humbert,,200005,0.0049
+113,8,14.0,Tommy Paul,,126205,0.00433
+112,7,11.0,Casper Ruud,,134770,0.00372
+57,4,29.0,Sebastian Korda,,200624,0.00363
+9,1,20.0,Adrian Mannarino,,105173,0.00355
+89,6,27.0,Felix Auger-Aliassime,,200000,0.00321
+116,8,,Jack Draper,,207733,0.0027
+6,1,,Gael Monfils,,104792,0.00238
+16,1,16.0,Ben Shelton,,210097,0.00202
+88,6,23.0,Alejandro Davidovich Fokina,,200221,0.00163
+56,4,18.0,Nicolas Jarry,,111797,0.0016
+22,2,,Marin Cilic,PR,105227,0.00155
+41,3,17.0,Frances Tiafoe,,126207,0.00153
+123,8,,Mackenzie McDonald,,111456,0.00133
+104,7,32.0,Jiri Lehecka,,208103,0.00129
+24,2,22.0,Francisco Cerundolo,,202103,0.00104
+72,5,28.0,Tallon Griekspoor,,134868,0.00102
+105,7,19.0,Cameron Norrie,,111815,0.00094
+77,5,,Denis Shapovalov,PR,133430,0.00087
+69,5,,Arthur Fils,,209950,0.00077
+71,5,,Roman Safiullin,,126128,0.00071
+42,3,,Borna Coric,,106432,0.00061
+94,6,,Emil Ruusuvuori,,200325,0.0006
+67,5,,Laslo Djere,,111513,0.0006
+126,8,,Lorenzo Sonego,,132283,0.00049
+25,2,25.0,Lorenzo Musetti,,207518,0.00049
+121,8,31.0,Alexander Bublik,,122330,0.00046
+51,4,,Matteo Arnaldi,,208286,0.00035
+34,3,,Botic van de Zandschulp,,122298,0.00031
+50,4,,Milos Raonic,PR,105683,0.00027
+125,8,,Daniel Evans,,105554,0.00027
+120,8,24.0,Jan-Lennard Struff,,105526,0.00026
+117,8,,Miomir Kecmanovic,,200175,0.00026
+82,6,,Marton Fucsovics,,105916,0.00024
+75,5,,Zhizhen Zhang,,111190,0.00024
+39,3,,J.J. Wolf,,200670,0.00023
+66,5,,Yoshihito Nishioka,,106415,0.00022
+21,2,,Fabian Marozsan,,206681,0.0002
+14,1,,Cristian Garin,,106426,0.00018
+119,8,,Rinky Hijikata,,208014,0.00018
+11,1,,Alexander Shevchenko,,207686,0.00017
+106,7,,Juan Pablo Varillas,,122669,0.00017
+84,6,,Thanasi Kokkinakis,,106423,0.00016
+99,7,,Soon-woo Kwon,PR,126952,0.00016
+83,6,,Sebastian Ofner,,124116,0.00015
+8,1,30.0,Tomas Martin Etcheverry,,144869,0.00015
+40,3,26.0,Sebastian Baez,,202104,0.00015
+10,1,,Stan Wawrinka,,104527,0.00015
+53,4,,Pavel Kotov,,200303,0.00014
+43,3,,Tomas Machac,,207830,0.00013
+7,1,,Andy Murray,,104918,0.00013
+101,7,,James McCabe,WC,210317,0.00013
+15,1,,Roberto Bautista Agut,,105138,0.00013
+78,5,,Jakub Mensik,Q,210150,0.00013
+122,8,,Sumit Nagal,Q,111576,0.00012
+26,2,,Benjamin Bonzi,,126127,0.00012
+107,7,,Dusan Lajovic,,105583,0.00012
+115,8,,Marcos Giron,,106218,0.00011
+45,3,,Alejandro Tabilo,,126214,0.0001
+52,4,,Adam Walton,WC,200443,0.0001
+110,7,,Mate Valkusz,Q,200218,0.0001
+85,6,,Maximilian Marterer,,109739,9e-05
+90,6,,Dominic Thiem,,106233,9e-05
+79,5,,Omar Jasika,Q,117357,8e-05
+109,7,,Max Purcell,,126845,7e-05
+58,4,,Vit Kopriva,Q,200240,7e-05
+70,5,,Jiri Vesely,PR,106210,7e-05
+29,2,,Aleksandar Vukic,,126846,7e-05
+27,2,,James Duckworth,WC,105902,7e-05
+61,4,,Christopher Eubanks,,111153,7e-05
+102,7,,Alex Michelsen,,210506,6e-05
+28,2,,Luca Van Assche,,209414,6e-05
+3,1,,Alexei Popyrin,,200615,6e-05
+54,4,,Arthur Rinderknech,,126239,6e-05
+30,2,,Jordan Thompson,,111442,6e-05
+74,5,,David Goffin,Q,105676,6e-05
+60,4,,Lloyd Harris,Q,144750,6e-05
+118,8,,Yosuke Watanuki,,133297,5e-05
+13,1,,Christopher O'Connell,,106331,4e-05
+55,4,,Flavio Cobolli,Q,207925,4e-05
+114,8,,Gregoire Barrere,,106296,4e-05
+38,3,,Jason Kubler,WC,106186,4e-05
+93,6,,Patrick Kypson,WC,200516,4e-05
+5,1,,Yannick Hanfmann,,105870,3e-05
+100,7,,Lukas Klein,Q,127760,3e-05
+91,6,,Alexandre Muller,,124186,3e-05
+95,6,,Terence Atmane,Q,209279,2e-05
+59,4,,Quentin Halys,,111460,2e-05
+46,3,,Aleksandar Kovacevic,Q,206499,2e-05
+108,7,,Giulio Zeppieri,Q,206748,2e-05
+86,6,,Nuno Borges,,132686,2e-05
+103,7,,Bernabe Zapata Miralles,,126523,2e-05
+35,3,,Jesper de Jong,Q,207411,2e-05
+18,2,,Facundo Diaz Acosta,,207680,2e-05
+92,6,,Hugo Grenier,Q,126409,2e-05
+98,7,,Dominik Koepfer,,136440,2e-05
+36,3,,Pedro Cachin,,106398,2e-05
+37,3,,Daniel Elahi Galan,,123755,2e-05
+12,1,,Jaume Munar,,144719,1e-05
+127,8,,Richard Gasquet,,104755,1e-05
+124,8,,Juncheng Shang,WC,209992,1e-05
+4,1,,Marc Polmans,WC,117360,1e-05
+111,7,,Albert Ramos-Vinolas,,105077,1e-05
+19,2,,Roberto Carballes Baena,,106148,1e-05
+87,6,,Constant Lestienne,,106005,1e-05
+68,5,,Arthur Cazaux,WC,209070,1e-05
+62,4,,Taro Daniel,,106121,1e-05
+20,2,,Hugo Gaston,LL,200384,0.0
+23,2,,Dane Sweeny,Q,208013,0.0
+31,2,,Zizou Bergs,LL,200267,0.0
+76,5,,Federico Coria,,105948,0.0
+2,1,,Dino Prizmic,Q,209976,0.0
+44,3,,Shintaro Mochizuki,LL,208278,0.0
+63,4,,Thiago Seyboth Wild,,205734,0.0
+47,3,,Daniel Altmaier,,127157,0.0
